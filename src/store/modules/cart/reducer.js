@@ -24,10 +24,10 @@ export default function cart(state = [], action) {
                 }
             });
 
-        case '@cart/UPDATE_AMOUNT': {
-            if (action.amount <= 0) {
-                return state;
-            }
+        case '@cart/UPDATE_AMOUNT_SUCCESS': {
+            // if (action.amount <= 0) { // this is already being done on the sagas
+            //     return state;
+            // }
 
             return produce(state, draft => {
                 const productIndex = draft.findIndex(p => p.id === action.id);
