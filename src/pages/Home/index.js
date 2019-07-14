@@ -33,6 +33,9 @@ class Home extends Component {
         const { addToCartRequest } = this.props;
         addToCartRequest(id);
 
+        // after adding a product to cart, redux saga navigates to the /cart page. This happens
+        // at the generator addToCart
+
         // const { dispatch } = this.props;
         // dispatch(CartActions.addToCart(product));
     };

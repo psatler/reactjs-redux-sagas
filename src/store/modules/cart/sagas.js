@@ -1,6 +1,7 @@
 import { call, put, select, all, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
+import history from '../../../services/history';
 import api from '../../../services/api';
 
 import { addToCartSuccess, updateAmountSuccess } from './actions';
@@ -37,6 +38,8 @@ function* addToCart({ id }) {
             priceFormatted: formatPrice(response.data.price),
         };
         yield put(addToCartSuccess(data));
+
+        history.push('/cart'); // we only navigate on the first time we choose a product
     }
 }
 
