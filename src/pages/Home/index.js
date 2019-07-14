@@ -27,11 +27,11 @@ class Home extends Component {
         });
     }
 
-    handleAddProduct = product => {
-        console.tron.log(product);
+    handleAddProduct = id => {
+        console.tron.log(id);
         // here using the bindActionCreators we can use the action directly from the props
-        const { addToCart } = this.props;
-        addToCart(product);
+        const { addToCartRequest } = this.props;
+        addToCartRequest(id);
 
         // const { dispatch } = this.props;
         // dispatch(CartActions.addToCart(product));
@@ -50,7 +50,7 @@ class Home extends Component {
 
                         <button
                             type="button"
-                            onClick={() => this.handleAddProduct(product)}
+                            onClick={() => this.handleAddProduct(product.id)}
                         >
                             <div>
                                 <MdAddShoppingCart size={16} color="#FFF" />{' '}
