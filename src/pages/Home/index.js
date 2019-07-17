@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { MdAddShoppingCart } from 'react-icons/md';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
@@ -9,8 +8,15 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import { ProductList } from './styles';
 
-function Home({ amount, addToCartRequest }) {
+export default function Home() {
     const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
+    const amount = useSelector(state =>
+        state.cart.reduce((sumAmount, product) => {
+            sumAmount[product.id] = product.amount;
+            return sumAmount;
+        }, {})
+    );
 
     // replacing componentDidMount
     useEffect(() => {
@@ -31,7 +37,7 @@ function Home({ amount, addToCartRequest }) {
     function handleAddProduct(id) {
         console.tron.log(id);
         // here using the bindActionCreators we can use the action directly from the props
-        addToCartRequest(id);
+        dispatch(CartActions.addToCartRequest(id));
 
         // after adding a product to cart, redux saga navigates to the /cart page. This happens
         // at the generator addToCart
@@ -63,18 +69,3 @@ function Home({ amount, addToCartRequest }) {
         </ProductList>
     );
 }
-
-const mapStateToProps = state => ({
-    amount: state.cart.reduce((amount, product) => {
-        amount[product.id] = product.amount;
-        return amount;
-    }, {}),
-});
-
-const mapDispatchToProps = dispatch =>
-    bindActionCreators(CartActions, dispatch);
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Home);
