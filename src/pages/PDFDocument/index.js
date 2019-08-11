@@ -31,7 +31,7 @@ export default function PDFDocument({ svgURI }) {
                 </View>
 
                 <Image source={logo} />
-                <Image source={logo} />
+                <Image source={sourceObj} />
             </Page>
         </Document>
     );
@@ -67,4 +67,34 @@ export const Icon = ({ fill, id }) => (
             transform="translate(-478 -181.08)"
         />
     </svg>
+);
+
+export const Table = () => (
+    <div
+        id="tableDiv"
+        style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gridColumnGap: '1px',
+            gridRowGap: '1px',
+            background: 'white',
+        }}
+    >
+        <div>
+            <h1>Testing</h1>
+            <span>Spam testing</span>
+            <img src={logo} />
+        </div>
+        <div>
+            <h1>Testing 2</h1>
+            <span>Spam testing</span>
+            <img src={logo} />
+        </div>
+        <div>
+            <h1>Testing 3</h1>
+            <span>Spam testing</span>
+            <img src={logo} />
+        </div>
+    </div>
 );

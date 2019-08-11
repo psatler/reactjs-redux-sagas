@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdAddShoppingCart } from 'react-icons/md';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+// import * as html2canvas from 'html2canvas';
+import * as jsPDF from 'jspdf';
+
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import saveSvgAsPng from 'save-svg-as-png';
 import canvg from 'canvg';
@@ -13,7 +14,8 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import { ProductList } from './styles';
 
-import PDF, { SVGDoc, Icon } from '../PDFDocument';
+import PDF, { SVGDoc, Icon, Table } from '../PDFDocument';
+import * as html2canvas from '../PDFDocument/htm2CanvasExternal';
 
 export default function Home() {
     const [products, setProducts] = useState([]);
@@ -76,14 +78,72 @@ export default function Home() {
     //     console.log(pngData);
     // });
 
-    function handlePdf() {
-        saveSvgAsPng
-            .svgAsDataUri(document.getElementById('icontest'), canvg)
-            .then(uri => {
-                console.log('uri', uri);
-                setSvgUri(uri);
-            })
-            .catch(error => console.log(error));
+    async function handlePdf() {
+        // const canvas = await html2canvas(document.getElementById('tableDiv'), {
+        //     // allowTaint: true,
+        //     // useCORS: true,
+        // });
+        // const pdf = new jsPDF('p', 'mm', 'A4');
+        // pdf.addHTML(
+        //     document.getElementById('tableDiv'),
+        //     5,
+        //     5,
+        //     {
+        //         // useCORS: true,
+        //     },
+        //     () => {
+        //         pdf.save('test.pdf');
+        //     }
+        // );
+        // const imgData = canvas.toDataURL('image/png', 0.5);
+        // console.log(imgData);
+        // pdf.addImage(imgData, 'PNG', 5, 5, canvas.width, canvas.height);
+        // pdf.save('HTML-Document.pdf');
+        // saveSvgAsPng
+        //     .svgAsDataUri(document.getElementById('icontest'), canvg)
+        //     .then(uri => {
+        //         console.log('uri', uri);
+        //         setSvgUri(uri);
+        //         fetch(uri).then(response =>
+        //             console.log(response.arrayBuffer())
+        //         );
+        //     })
+        //     .catch(error => console.log(error));
+        // const SVGDiv = document.getElementById("my-svg-div");
+    }
+
+    function anotherDownloadFunc() {
+        const input = document.getElementById('canvas');
+        html2canvas(input, {
+            onrendered(canvas) {
+                const imgData = canvas.toDataURL('image/png');
+                const doc = new jsPDF('p', 'mm');
+                doc.addImage(imgData, 'PNG', 10, 10);
+                doc.save('sample-file.pdf');
+            },
+        });
+    }
+
+    function handleDownloadPdf() {
+        // const input = document.getElementById('tableDiv');
+        // html2canvas(input).then(canvas => {
+        //     const imgData = canvas.toDataURL('image/jpeg', 0.5);
+        //     const pdf = new jsPDF('p', 'mm', 'a4');
+        //     // const width = pdf.internal.pageSize.getWidth();
+        //     // const height = pdf.internal.pageSize.getHeight();
+
+        //     pdf.addImage(imgData, 'JPEG', 5, 5, 100, 150);
+        //     pdf.save('test.pdf');
+        // });
+
+        // const canvas = await html2canvas(document.getElementById('tableDiv'), {
+        //     // allowTaint: true,
+        //     // useCORS: true,
+        // });
+        const pdf = new jsPDF('p', 'mm', 'A4');
+        pdf.addHTML(document.getElementById('tableDiv'), 5, 5, {}, () => {
+            pdf.save('test.pdf');
+        });
     }
 
     // replacing componentDidMount
@@ -120,8 +180,14 @@ export default function Home() {
 
     return (
         <>
+            <button type="button" onClick={handleDownloadPdf}>
+                handleDownloadPdf
+            </button>
             <button type="button" onClick={handlePdf}>
                 downloadPdf
+            </button>
+            <button type="button" onClick={anotherDownloadFunc}>
+                anotherDownloadFunc
             </button>
 
             {seePdf && svgURI && (
@@ -138,7 +204,7 @@ export default function Home() {
                     }
                 </PDFDownloadLink>
             )}
-
+            <Table />
             <Icon fill="red" id="icontest" />
 
             {/* {seePdf && <PDF />} */}

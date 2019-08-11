@@ -1433,6 +1433,11 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
+"@types/jspdf@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@types/jspdf/-/jspdf-1.3.1.tgz#086d0ae4c393a08950d2775e992a6123d5c0d8a8"
+  integrity sha512-9MQLH4+uNiFKCD5JG0yfN02O8niO/Md/Cko6pmL46dF/8eWrg61adP1aGNbuxsxuxWngKghnCeIZCeLYr1Poag==
+
 "@types/node@*":
   version "12.6.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.2.tgz#a5ccec6abb6060d5f20d256fb03ed743e9774999"
@@ -6547,6 +6552,11 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
+
+jspdf-autotable@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/jspdf-autotable/-/jspdf-autotable-3.2.2.tgz#33e6a15187edc726c4ae97e5cde7426dc7329c53"
+  integrity sha512-h1RwQzEUyCIEBtZGlzq9htBu59gRxoG+yOy6kKLOHCcmqRxYcTAUW8P9e4uBTTMegwVzUvRxCkGsKwi4TF/vIg==
 
 jspdf@^1.5.3:
   version "1.5.3"
