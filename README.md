@@ -1,3 +1,60 @@
+<p align="center">
+  <img alt="Repository Last Commit Date" src="https://img.shields.io/github/last-commit/psatler/reactjs-redux-sagas?color=blue">
+
+  <a href="https://www.linkedin.com/in/pablosatler/">
+    <img alt="Made by Pablo Satler" src="https://img.shields.io/badge/made%20by-Pablo%20Satler-blue">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/github/license/psatler/reactjs-redux-sagas?color=blue">
+
+</p>
+
+> E-Commerce like app showcasing redux and hooks
+
+## How to run
+
+```
+git clone https://github.com/psatler/reactjs-redux-sagas
+cd reactjs-redux-sagas
+yarn (or npm install)
+yarn start (or npm start)
+```
+
+To get the fake api running, open another terminal and run `yarn jsonserver` so it will serve the `server.json` file as our API. This is being server on port `:3333`
+
+PS: you can access the routes from the fake api at, for example (on localhost), at `http://localhost:3333/products`, `http://localhost:3333/stock`. You can even access an specific product by passing its id as at `http://localhost:3333/products/3`. See more details on the _Json Server_ repository (link below).
+
+## Some dependencies/tools used
+
+-   [ESLint](https://github.com/eslint/eslint)
+-   [Prettier](https://github.com/prettier/prettier)
+-   [EditorConfig](https://github.com/editorconfig/editorconfig)
+-   [Styled Components](https://github.com/styled-components/styled-components)
+-   [React Router Dom](https://reacttraining.com/react-router/web/guides/quick-start)
+-   [Font Roboto](https://fonts.google.com/specimen/Roboto?selection.family=Roboto)
+-   [React Icons](https://react-icons.netlify.com/#/)
+-   [Polished](https://polished.js.org/) to darken some colors
+-   [Json-server](https://github.com/typicode/json-server) to fake our API
+-   [Javascript's INTL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) to perform localization when formatting the price
+-   [Reactotron](https://github.com/infinitered/reactotron) to debug the application's state
+-   [Immer](https://github.com/immerjs/immer) which allow us to use mutable methods to create the next immutable state
+
+## License
+
+This project is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT) © Pablo Satler 2019
+
+&emsp;
+
+&emsp;
+
+&emsp;
+
+&emsp;
+
+&emsp;
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
