@@ -9,7 +9,7 @@
 
 </p>
 
-> E-Commerce like app showcasing redux and hooks
+> E-Commerce like app showcasing react, hooks, redux and redux-sagas
 
 ## How to run
 
@@ -20,9 +20,9 @@ yarn (or npm install)
 yarn start (or npm start)
 ```
 
-To get the fake api running, open another terminal and run `yarn jsonserver` so it will serve the `server.json` file as our API. This is being server on port `:3333`
+To get the fake api running, open another terminal and run `yarn jsonserver` so it will serve the `server.json` file as our API. This is being server on port `:3333`.
 
-PS: you can access the routes from the fake api at, for example (on localhost), at `http://localhost:3333/products`, `http://localhost:3333/stock`. You can even access an specific product by passing its id as at `http://localhost:3333/products/3`. See more details on the _Json Server_ repository (link below).
+PS: you can access the routes from the fake api at, for example (on localhost), at `http://localhost:3333/products`, `http://localhost:3333/stock`. You can even access an specific product by passing its id as at `http://localhost:3333/products/3`. See more details on the _Json Server_ repository (link below). You can also add a delay to the response by using the `-d` flag followed by the amount of delay you want in miliseconds.
 
 ## Some dependencies/tools used
 
@@ -38,6 +38,24 @@ PS: you can access the routes from the fake api at, for example (on localhost), 
 -   [Javascript's INTL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) to perform localization when formatting the price
 -   [Reactotron](https://github.com/infinitered/reactotron) to debug the application's state
 -   [Immer](https://github.com/immerjs/immer) which allow us to use mutable methods to create the next immutable state
+-   [React Toastify](https://github.com/fkhadra/react-toastify) to display notifications on screen
+-   [History](https://www.npmjs.com/package/history) to control the browser's history api. We use this inside the `<Router>` component and in the saga to navigate the user after the api call ends
+
+## Screenshots
+
+1. Main route (`/`)
+
+<p align="center">
+  <!-- <img width="460" height="300" src="./screenshots/main-page.png"> -->
+  <img src="./screenshots/shopping-cart-1.png">
+</p>
+
+2. Cart route (`/cart`)
+
+<p align="center">
+  <!-- <img width="460" height="300" src="./screenshots/main-page.png"> -->
+  <img src="./screenshots/shopping-cart-2.png">
+</p>
 
 ## License
 
