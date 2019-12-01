@@ -20,7 +20,7 @@ yarn (or npm install)
 yarn start (or npm start)
 ```
 
-To get the fake api running, open another terminal and run `yarn jsonserver` so it will serve the `server.json` file as our API. This is being server on port `:3333`.
+To get the fake api running, open another terminal and run `yarn jsonserver` so it will serve the `server.json` file as our API. This is being served on port `:3333`.
 
 PS: you can access the routes from the fake api at, for example (on localhost), at `http://localhost:3333/products`, `http://localhost:3333/stock`. You can even access an specific product by passing its id as at `http://localhost:3333/products/3`. See more details on the _Json Server_ repository (link below). You can also add a delay to the response by using the `-d` flag followed by the amount of delay you want in miliseconds.
 
